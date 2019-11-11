@@ -10,8 +10,10 @@ class UsersController < ApplicationController
         render json:@user
     end
 
-    # def update
-    #     @user = 
-    # end
+    def create
+        data = JSON.parse(request.raw_post)
+        @user = User.create(data)
+        render json:@user
+    end
 
 end
